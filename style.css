@@ -1,0 +1,20 @@
+/* bu bir ozel kutuphane */
+
+body{
+    background-color: rgb(245, 199, 144);
+}
+
+button{
+    width: 200px;
+    background-color: rgb(45, 174, 82);
+    color: white;
+    padding: 10px;
+    margin: 5px;
+}
+
+#anaBaslik{
+    padding: 10px;
+    background-color: rgb(255, 229, 220);
+    margin: 10px;
+    box-shadow: 2px 2px 16px blue;
+}

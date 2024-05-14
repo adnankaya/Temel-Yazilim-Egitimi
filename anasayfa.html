@@ -1,12 +1,67 @@
 <html>
 
 <head>
-    <title>Bu benim ilk web sitem | ÇĞÜŞ</title>
+    <title>Bu benim ilk web sitem</title>
+
+    <style>
+        .benimLink{
+            text-decoration: none;
+            padding: 10px;
+            
+        }
+        header{
+            background-color: #142EA9;
+            margin-top: 15px;
+            
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        a:hover{
+            background-color: yellow;
+            color: black;
+        }
+
+    </style>
+    <!-- ---------------------------------- -->
+    <!-- css kütüphanesi(dosyası) ekleme -->
+    <!-- ---------------------------------- -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <!-- ---------------------------------- -->
+    <!-- css kütüphanesi(dosyası) ekleme -->
+    <!-- ---------------------------------- -->
 </head>
 
 <body>
+    <!--
+        CSS 3 şekilde yazılabilir
+        1. style attribute ile inline yani aşağıdaki h1 örneğindeki gibi
+        2. style ı head içerisine yazarak
+        3. harici kütüphane(kendi kütüphanemiz veya başkasının yazdığı olabilir.) 
 
-    <h1 style="background-color: yellow; color:green;">Bu web sitesi sadece gösterim amaçlı yazıldı.</h1>
+    -->
+    <header>
+        <a href="anasayfa.html" class="benimLink">Anasayfa</a>
+        <a href="hakkimda.html">Hakkımda</a>
+        <a href="kisayollar.html">Kısayollar</a>
+        <a href="iletisim.html" target="_blank">İletişim(Yeni Sekmede Aç)</a>
+        <a href="home.html" target="_blank">Home(Yeni Sekmede Aç)</a>
+    </header>
+    <header>
+        <button>Button1</button>
+        <button>Button2</button>
+        <button>Button3</button>
+    </header>
+
+    <div id="anaBaslik">
+        <h1 style="background-color: yellow; color:green;">
+            Bu web sitesi sadece gösterim amaçlı yazıldı.
+        </h1>
+    </div>
+
+
     
     
     <h1>Bu en büyük başlık h1</h1>
