@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temel Yazılım Eğitimi</title>
+    <!-- sadece internete bagli olunca calisir -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="my-1">
+            <a href="index.html" class="btn btn-outline-primary">Anasayfa</a>
+            <a href="hakkimda.html" class="btn btn-light">Hakkımda</a>
+        </header>
+        <main class="container my-5 shadow" style="min-height: 75vh;">
+            <button class="btn btn-dark text-white m-5" id="uyariButonu"
+                onclick="alert('Butona tıklamayın diye uyarmıştım. Şimdi virüsü gönderiyorum :D :D :D')">
+                Sakın Tıklama
+            </button>
+            <button class="btn btn-success text-white m-5" id="selamVerButonu"
+                onclick="selamVer()">
+                Selam Ver
+            </button>
+            <div class="my-4">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Meyve</th>
+                            <th>Kilogram Fiyat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Elma</td>
+                            <td id="fiyatElma">30</td>
+                        </tr>
+                        <tr>
+                            <td>Karpuz</td>
+                            <td id="fiyatKarpuz">25</td>
+                        </tr>
+                        <tr>
+                            <td>Çilek</td>
+                            <td id="fiyatCilek">75</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="my-2">
+                    <button class="btn btn-primary" onclick="hesapla()">
+                        Hesapla
+                    </button>
+                    <span>
+                        <b>Toplam tutar:</b>
+                        <span id="toplamTutar">0 ₺</span>
+                    </span>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <h3 class="text-center">
+                Bu web sitesi Adnan Kaya tarafından geliştirildi...
+            </h3>
+        </footer>
+    </div>
+    <!-- javascript kullanim yeri -->
+    <script>
+        console.log("Merhaba, sitenin sayfası başarıyla yüklendi...")
+
+
+        // selamVer fonksiyonu tanımlama
+        function selamVer(){
+            document.getElementById("selamVerButonu").innerHTML = "Ve aleykum selam"
+        }
+        
+        // hesapla fonksiyonu tanımlama
+        function hesapla(){
+            
+            // console.log( document.getElementById("fiyatElma").innerText);
+            // console.log( document.getElementById("fiyatKarpuz").innerText);
+            // console.log( document.getElementById("fiyatCilek").innerText);
+            
+            
+
+            // Değişken tanımlama için kullanılabilecek anahtar kelimeler const, let, var
+
+            const fiyat_elma =   document.getElementById("fiyatElma").innerText;
+            const fiyat_karpuz =   document.getElementById("fiyatKarpuz").innerText;
+            const fiyat_cilek =   document.getElementById("fiyatCilek").innerText;
+            
+            // assign (tayin etmek). parseInt string yani karakter dizisi olan bir sayı ifadesini integer(int) yani tam sayı haline parse eder yani dönüştürür
+            const sonuc = parseInt(fiyat_elma) + parseInt(fiyat_karpuz) + parseInt(fiyat_cilek)
+            
+            console.log("Toplam sonucu: ", sonuc);
+            document.getElementById("toplamTutar").innerText = sonuc + "₺"; // sayi + karakter(ya da karakter dizisi) -> karakter dizisine dönüşüyor.
+
+
+        }
+
+
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
