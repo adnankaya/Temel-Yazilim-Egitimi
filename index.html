@@ -21,8 +21,7 @@
                 onclick="alert('Butona tıklamayın diye uyarmıştım. Şimdi virüsü gönderiyorum :D :D :D')">
                 Sakın Tıklama
             </button>
-            <button class="btn btn-success text-white m-5" id="selamVerButonu"
-                onclick="selamVer()">
+            <button class="btn btn-success text-white m-5" id="selamVerButonu" onclick="selamVer()">
                 Selam Ver
             </button>
             <div class="my-4">
@@ -31,20 +30,30 @@
                         <tr>
                             <th>Meyve</th>
                             <th>Kilogram Fiyat</th>
+                            <th>Seçim</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Elma</td>
+                            <td><label for="elmaID">Elma</label></td>
                             <td id="fiyatElma">30</td>
+                            <td>
+                                <input type="checkbox" name="" id="elmaID" onclick="elmaSecildiMi()">
+                            </td>
                         </tr>
                         <tr>
-                            <td>Karpuz</td>
+                            <td><label for="karpuzID">Karpuz</label></td>
                             <td id="fiyatKarpuz">25</td>
+                            <td>
+                                <input type="checkbox" name="" id="karpuzID" onclick="karpuzSecildiMi()">
+                            </td>
                         </tr>
                         <tr>
-                            <td>Çilek</td>
+                            <td><label for="cilekID">Çilek</label></td>
                             <td id="fiyatCilek">75</td>
+                            <td>
+                                <input type="checkbox" name="" id="cilekID" onclick="cilekSecildiMi()">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -58,6 +67,24 @@
                     </span>
                 </div>
             </div>
+            <div class="m-5 border p-3 bg-warning-subtle">
+                <div>
+                    <label for="adsyoadID">Ad Soyad</label>
+                    <input type="text" name="" id="adsyoadID" class="border border-primary" />
+                </div>
+                <div class="my-2">
+                    <label for="yasID">Yaşınız 18'den büyük mü?</label>
+                    <input type="checkbox" name="" id="yasID" />
+                </div>
+                <button class="btn btn-warning" type="button">Kontrol Et</button>
+                <div>
+                    <span>Sonuç</span>
+                    <span id="idKontrolSonuc">...</span>
+                </div>
+            </div>
+            <div class="mb-5">
+                <hr>
+            </div>
         </main>
         <footer>
             <h3 class="text-center">
@@ -69,32 +96,64 @@
     <script>
         console.log("Merhaba, sitenin sayfası başarıyla yüklendi...")
 
+        var toplamHesap = 0;
+
+        function elmaSecildiMi() {
+            const elmaSecilmeDurumu = document.getElementById("elmaID").checked
+            const fiyat_elma = document.getElementById("fiyatElma").innerText
+            if (elmaSecilmeDurumu === true) {
+                // console.log("Elma seçildi");
+                // 30  = 0 + 30
+                toplamHesap = toplamHesap + parseInt(fiyat_elma);
+            } else {
+                toplamHesap = toplamHesap - parseInt(fiyat_elma);
+            }
+        }
+        function karpuzSecildiMi() {
+            const karpuzSecilmeDurumu = document.getElementById("karpuzID").checked
+            const fiyat_karpuz = document.getElementById("fiyatKarpuz").innerText
+            if (karpuzSecilmeDurumu === true) {
+                // console.log("karpuz seçildi");
+                // 55 = 30 + 25
+                toplamHesap = toplamHesap + parseInt(fiyat_karpuz)
+            } else {
+                toplamHesap = toplamHesap - parseInt(fiyat_karpuz)
+            }
+        }
+        function cilekSecildiMi() {
+            const cilekSecilmeDurumu = document.getElementById("cilekID").checked
+            const fiyat_cilek = document.getElementById("fiyatCilek").innerText
+            if (cilekSecilmeDurumu === true) {
+                // console.log("cilek seçildi");
+                // 130 = 55 + 75
+                // 75 = 0 + 75
+                toplamHesap = toplamHesap + parseInt(fiyat_cilek)
+            } else {
+                toplamHesap = toplamHesap - parseInt(fiyat_cilek)
+            }
+        }
+
 
         // selamVer fonksiyonu tanımlama
-        function selamVer(){
+        function selamVer() {
             document.getElementById("selamVerButonu").innerHTML = "Ve aleykum selam"
         }
-        
+
         // hesapla fonksiyonu tanımlama
-        function hesapla(){
-            
+        function hesapla() {
+
             // console.log( document.getElementById("fiyatElma").innerText);
             // console.log( document.getElementById("fiyatKarpuz").innerText);
             // console.log( document.getElementById("fiyatCilek").innerText);
-            
-            
+
+
 
             // Değişken tanımlama için kullanılabilecek anahtar kelimeler const, let, var
 
-            const fiyat_elma =   document.getElementById("fiyatElma").innerText;
-            const fiyat_karpuz =   document.getElementById("fiyatKarpuz").innerText;
-            const fiyat_cilek =   document.getElementById("fiyatCilek").innerText;
-            
+
+
             // assign (tayin etmek). parseInt string yani karakter dizisi olan bir sayı ifadesini integer(int) yani tam sayı haline parse eder yani dönüştürür
-            const sonuc = parseInt(fiyat_elma) + parseInt(fiyat_karpuz) + parseInt(fiyat_cilek)
-            
-            console.log("Toplam sonucu: ", sonuc);
-            document.getElementById("toplamTutar").innerText = sonuc + "₺"; // sayi + karakter(ya da karakter dizisi) -> karakter dizisine dönüşüyor.
+            document.getElementById("toplamTutar").innerText = toplamHesap + "₺"; // sayi + karakter(ya da karakter dizisi) -> karakter dizisine dönüşüyor.
 
 
         }
