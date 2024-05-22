@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <input type="text" id="yapilacak" placeholder="Eklemek için yazınız...">
+        <button onclick="ekle()">+Ekle</button>
+
+
+    </div>
+    <div id="sonucListesi">
+
+    </div>
+    <script>
+        //var global değişken tanımlamak için kullanılır. 
+        //Aşağıda boş bir dizi oluşturup dizi_yapilacaklar değişkenine tayin (assign) ediyoruz.
+        var dizi_yapilacaklar = []
+
+
+        function ekle() {
+            const inputElement = document.getElementById("yapilacak")
+            const yazilan = inputElement.value
+            //console.log(yazilan);
+            dizi_yapilacaklar.push(yazilan)
+            //console.log(dizi_yapilacaklar);
+            //listeyi göster fonksiyonunu çağırıyoruz
+            listeyi_goster()
+
+
+            //input kutucuğu içerisindeki yazıyı temizlemek için aşağıdaki şekilde kullanıyoruz
+            inputElement.value = ""
+        }
+        function listeyi_goster() {
+            const sonucListesidiv = document.getElementById("sonucListesi")
+            let satir = ""
+            for (let index = 0; index < dizi_yapilacaklar.length; index++) {
+                const yapilacak_sey = dizi_yapilacaklar[index];
+                const checkbox = `<input type="checkbox" onclick="sec(this)" id="${index}">`
+                const label = `<label for="${index}">${yapilacak_sey}</label><br>`
+                satir = satir + (checkbox + label)
+            }
+            sonucListesidiv.innerHTML = satir
+
+
+        }
+        function sec(element) {
+            console.log(element.id);
+            const label = document.querySelector(`label[for="${element.id}"]`);
+            if(element.checked) {
+                //strikethrough
+                label.style.textDecoration = "line-through";
+            }
+            else {
+                label.style.textDecoration = "none"
+            }
+        }
+    </script>
+</body>
+</html>
